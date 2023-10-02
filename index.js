@@ -1,55 +1,3 @@
-/* var http=require('http')
-var server=http.createServer(function(req, res){
-    res.writeHead(201,{"Content-Type":"application/json","Accept":"application/json"});
-
-    var table =[
-        {
-            mot:'pomme',
-            traduction:'apple',
-        },
-        {
-            mot:'mangue',
-            traduction:'mango',
-        },
-        {
-            mot:'courir',
-            traduction:'run',
-        },
-        {
-            mot:'lune',
-            traduction:'moon',
-        },
-        {
-            mot:'soleil',
-            traduction:'sun',
-        },
-        {
-            mot:'sac',
-            traduction:'bag',
-        },
-        {
-            mot:'montre',
-            traduction:'watch',
-        },
-        {
-            mot:'viens',
-            traduction:'come',
-        },
-        {
-            mot:'amour',
-            traduction:'love',
-        },
-    ]
-    function translate(nom,nomTrad){
-        const number=Math.floor(Math.random()*tab.length);
-        return tab[number];
-    }
-    var dico=translate(nom,nomTrad);
-    res.end(JSON.stringify(dico))
-})
-server.listen(8001,function(){
-    console.log('server is running at port 8001')
-}); */
 var http = require('http');
 
 var server = http.createServer(function(req, res) {
@@ -122,6 +70,34 @@ var server = http.createServer(function(req, res) {
     } else {
         res.end(JSON.stringify({ message: "Requête non supportée. Utilisez POST pour traduire un mot." }));
     }
+
+    /* function transition(nomfr) {
+        var findWord = table.find(function(item) {
+            return item.traduction === nomfr;
+        });
+
+        if (findWord) {
+            return findWord.traduction;
+        } else {
+            return "word's not found in table";
+        }
+    } 
+    if (req.method === 'POST') {
+        var body = '';
+        req.on('data', function(data) {
+            body += data;
+        });
+
+        req.on('end', function() {
+            var requestDat = JSON.parse(body);
+            var nomfr = requestDat.traduction;
+            var mot = translate(nomfr);
+            var response = { traduction: nomfr, mot: mot };
+            res.end(JSON.stringify(response));
+        });
+    } else {
+        res.end(JSON.stringify({ message: "Requête non supportée. Utilisez POST pour traduire un mot." }));
+    } */
 });
 
 server.listen(8002, function() {
